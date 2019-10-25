@@ -49,4 +49,4 @@ class component:
 Use `App.js` as your starting point. It should render the class components above.
 
 ## Analysis
-After you have completed Stage 1, take a look at the application as a whole. Take what you know and consider how you would attempt to connect these stateful components. Do _not_ use any other npm packages to accomplish this. 
+After you have completed Stage 1, take a look at the application as a whole. Take what you know about state, props, and `.bind(this)` and consider how you would attempt to connect these stateful components. What would the resulting architecture look like? 

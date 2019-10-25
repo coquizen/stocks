@@ -17,15 +17,15 @@ Develop a simple stock trading application request stock quotes and allows the e
 
 1. Clone this repository: `git clone https://github.com/CaninoDev/stocks`
 2. In your favorite IDE, open the resulting folder.
-3. run `$ npm install`
+3. run `npm install`
 3. In a terminal window, run `node server,js`. This will serve as the backend for this project.
 4. Complete the following stage:
 
 ### Stage 1.1
 
 class component: 
-    - fetches quotes information when it mounts using the component's lifecycle function `componentDidMount()` and calls `fetch()`. The resulting data should be stored in the component's state
-    - render each stock information using stateless components
+    - fetch quotes information when it mounts using the component's lifecycle function `componentDidMount()` and calls `fetch()`. The resulting data should be stored in the component's state
+    - renders each stock information using stateless components
 
 #### Notes
 The endpoint for retrieving stock data is `localhost:5000/api/index`. Research into the `fetch()` and how to call it [here](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
@@ -33,16 +33,16 @@ The endpoint for retrieving stock data is `localhost:5000/api/index`. Research i
 ### Stage 1.2
 
 class component:
-    - store's the user's available balance in state. Their starting balance should be $100,000.
-    - implement transactional functions that take in values that will add and subtract from their balance
-    - render their balance information using a stateless component
+    - stores the user's available balance in state. Their starting balance should be $100,000.
+    - implements transactional functions that take in values that will add and subtract from their balance
+    - renders their balance information using a stateless component
 
 ### Stage 1.3
 
 class component:
-    - store the user's stock portfolio in state. Assume that their stock portfolio contains the entire index as provided in your quotes component.
-    - implement a sell function that divests their portfolio for a specific stock. Don't worry about updating your balance to reflect transaction at the moment.
-    - render each stock in the portfolio that displays the purchase date and price.
+    - stores the user's stock portfolio in state. Assume that their stock portfolio contains the entire index as provided in your quotes component.
+    - implements a sell function that divests their portfolio for a specific stock. Don't worry about updating your balance to reflect transaction at the moment.
+    - renders each stock in the portfolio that displays the purchase date and price.
 
 ### Stage 1.4
 

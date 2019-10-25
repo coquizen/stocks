@@ -1,68 +1,52 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Fantasy Stock Trading
 
-## Available Scripts
+## Summary
 
-In the project directory, you can run:
+Develop a simple stock trading application request stock quotes and allows the enduser to buy and sell stocks. This assignment will be completed in stages.
 
-### `yarn start`
+## Details of Implementation
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- That lists information about a set of quotes
+    - Provide the ability for the user to buy x amounts of each particular stock
+    - Provide the ability to sell x amounts of particular stock (if they have it in their portfolio)
+    - A button that refreshes stock information
+- Displays the user's available balance
+- Displays the user's stock portfolio with each stock's purchased price as well as the difference between purchase price and current price.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Setup
 
-### `yarn test`
+1. Clone this repository: `git clone https://github.com/CaninoDev/stocks`
+2. In your favorite IDE, open the resulting folder.
+3. run `$ npm install`
+3. In a terminal window, run `node server,js`. This will serve as the backend for this project.
+4. Complete the following stage:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Stage 1.1
 
-### `yarn build`
+class component: 
+    - fetches quotes information when it mounts using the component's lifecycle function `componentDidMount()` and calls `fetch()`. The resulting data should be stored in the component's state
+    - render each stock information using stateless components
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Notes
+The endpoint for retrieving stock data is `/api/index`. Research into the `fetch()` and how to call it [here](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Stage 1.2
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+class component:
+    - store's the user's available balance in state. Their starting balance should be $100,000.
+    - implement transactional functions that take in values that will add and subtract from their balance
+    - render their balance information using a stateless component
 
-### `yarn eject`
+### Stage 1.3
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+class component:
+    - store the user's stock portfolio in state. Assume that their stock portfolio contains the entire index as provided in your quotes component.
+    - implement a sell function that divests their portfolio for a specific stock. Don't worry about updating your balance to reflect transaction at the moment.
+    - render each stock in the portfolio that displays the purchase date and price.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Stage 1.4
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Use `App.js` as your starting point. It should render the class components above.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Analysis
+After you have completed Stage 1, take a look at the application as a whole. Take what you know and consider how you would attempt to connect these stateful components. Do _not_ use any other npm packages to accomplish this. 

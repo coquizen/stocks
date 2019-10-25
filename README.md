@@ -28,7 +28,7 @@ class component:
     - render each stock information using stateless components
 
 #### Notes
-The endpoint for retrieving stock data is `/api/index`. Research into the `fetch()` and how to call it [here](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+The endpoint for retrieving stock data is `localhost:5000/api/index`. Research into the `fetch()` and how to call it [here](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 
 ### Stage 1.2
 

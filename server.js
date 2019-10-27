@@ -6,6 +6,9 @@
 var fs = require('fs')
 var express = require('express');
 var app = express()
+var cors = require('cors')
+
+
 
 const stock_tickers = ["ibm", "orcl", "fb", "intc", "msft", "aapl", "googl"]
 
@@ -34,6 +37,8 @@ const populateDB = () => {
 }
 
 var index = populateDB()
+
+app.use(cors())
 
 app.get('/api/index', (req, res) => {
     var stocksData = []

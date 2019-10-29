@@ -1,69 +1,40 @@
 import React, { Component } from 'react'
+import {withRouter} from 'react-router'
 
 class StocksContainer extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            stocks: {}
         }
     }
 
     componentDidMount() {
-        fetch('http://localhost:5000/api/index')
-        .then(response => {
-            let hi = response.json()
-            console.log(hi)
-            return hi
-        })
+        fetch('/api/index')
+        .then(response => response.json())
         .then(data => {
-            console.log(data)
-            let stArr = data.map(stock => {
-                var fieldName = Object.keys(stock.stockData)
-                console.log(`fieldName: ${fieldName}`)
-                fieldName.map(k => {
-                    console.log(k.slice(3))
-                })
-                return {
-                    [stock.name]: stock.stockData,
-                    stock: 1
-                }
+            this.setState({
+                stocks: data
             })
-
-
-            console.log('stArr', JSON.stringify(stArr))
- 
         })
     }
 
     render() {
         const { stocks } = this.state
-        console.log(stocks)
+        console.log(typeof stocks)
+        if ( stocks ) {
+            var name = Object.keys(stocks)
+            console.log(name)
+        }
         return (
             <div>
- 
+                {stocks && name.map(stock => 
+                    <h1>{stocks[name].stockData}</h1>
+                )}
             </div>
-                /* {console.log(stocksName[2])}
-                <table>
-                    <thead>
-                        <tr>
-                            <th>name</th>
-                            <th>open</th>
-                            <th>low</th>
-                            <th>volume</th>
-                        </tr>
-                    </thead>
-                    {stocksName.map(name => 
-                        <tr>
-                            {this.state[name].map(stock => 
-                                <React.Fragment>
-                                    <td>{name}</td>
-                                </React.Fragment>
-                        )}
-                        </tr>
-                    )}
-                    </table>
-                                 */
         )
     }
 }
 
-export default StocksContainer
+
+export default withRouter(StocksContainer)

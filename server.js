@@ -25,11 +25,17 @@ fs.readFileAsync = function(filename, enc) {
 
 const populateDB = () => {
     var obj = {}
+    var date = new Date()
+    var today = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+
     stock_tickers.map(stock_name => {
+        console.log(`Stock name: ${stock_name}`)
         fs.readFileAsync(`./assets/${stock_name}.json`, 'utf8')
         .then(response => JSON.parse(response))
         .then(data => {
             obj[stock_name] = data["Monthly Time Series"]
+            obj["date"] = today
+            console.log(Object.keys(data))
             })
         .catch(err => console.log(err))
     })
@@ -41,20 +47,14 @@ var index = populateDB()
 app.use(cors())
 
 app.get('/api/index', (req, res) => {
-    var stocksData = []
-    var currentData = {}
-    var currentDate = new Date()
-    var today = currentDate.getFullYear() + '-' + (currentDate.getMonth()+1) + '-'+ currentDate.getDate();
-    stock_tickers.map(name => {     
-        var dates = Object.keys(index[name])   
-        currentData = index[name][dates[dates.length - 1]]
-        stocksData.push({
-            name: name,
-            stockData: currentData,
-            date: today
-    })
-    })
-    return res.send(stocksData)
+    // stock_tickers.map(name => {     
+    //     var dates = Object.keys(index[name])   
+    //     currentData = index[name][dates[dates.length - 1]]
+    //     stocksData.push({
+    //         name: name,
+    //         stockData: currentData,
+    //         date: today
+    return res.send(index)
 })
 
 

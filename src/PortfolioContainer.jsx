@@ -1,7 +1,16 @@
 import React from 'react'
-import {withRouter} from 'react-router'
-const PortfolioContainer = () => (
-    <h1L>Portfolio</h1L>
-)
 
-export default withRouter(PortfolioContainer);
+class PortfolioContainer extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {}
+    }
+
+    render() {
+        return (
+            <div></div>
+        )
+    }
+}
+
+export default PortfolioContainer;

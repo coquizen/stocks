@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import {withRouter} from 'react-router'
-
 class StocksContainer extends Component {
     constructor(props) {
         super(props)
@@ -37,4 +35,4 @@ class StocksContainer extends Component {
 }
 
 
-export default withRouter(StocksContainer)
+export default StocksContainer

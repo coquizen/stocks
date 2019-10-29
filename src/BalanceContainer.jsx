@@ -1,8 +1,16 @@
-import React from 'react'
-import {withRouter} from 'react-router'
+import React, {Component} from 'react'
 
-const BalanceContainer = () => (
-    <h1L>balance</h1L>
-)
+class BalanceContainer extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {}
+    }
 
-export default withRouter(BalanceContainer);
+    render() {
+        return (
+            <div></div>
+        )
+    }
+}
+
+export default BalanceContainer;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import StocksComponent from './StocksComponent'
 class StocksContainer extends Component {
     constructor(props) {
         super(props)
@@ -18,21 +19,21 @@ class StocksContainer extends Component {
     }
 
     render() {
-        const { stocks } = this.state
-        console.log(typeof stocks)
-        if ( stocks ) {
-            var name = Object.keys(stocks)
-            console.log(name)
+        console.log("State: " + Object.keys(this.state.stocks))
+        var names = Object.keys(this.state.stocks)
+        console.log(names)
+        if (names.length > 0) {
+            return (
+                <div>
+                {names.map(name => <StocksComponent key={name} stockName={name} />)}
+                </div> 
+            )
+        } else {
+            return (
+                <p>Empty State</p>
+            )
         }
-        return (
-            <div>
-                {stocks && name.map(stock => 
-                    <h1>{stocks[name].stockData}</h1>
-                )}
-            </div>
-        )
     }
 }
-
 
 export default StocksContainer
